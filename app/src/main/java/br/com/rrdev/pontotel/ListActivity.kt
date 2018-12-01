@@ -35,6 +35,8 @@ class ListActivity : AppCompatActivity(), DialogListener, DaoHelperListerner {
         const val tag = "PONTO_TEL"
     }
 
+    private val adapter = UserAdapter()
+
     private val dao = DaoHelper(this)
 
     private val confirmDialog = ConfirmDialog()
@@ -53,6 +55,8 @@ class ListActivity : AppCompatActivity(), DialogListener, DaoHelperListerner {
         refreshLayout = findViewById(R.id.refresh)
         recyclerView = findViewById(R.id.recycler)
         recyclerView.setupVertical(applicationContext)
+
+        recyclerView.adapter = adapter
 
         confirmDialog.listener = this
 
@@ -116,12 +120,13 @@ class ListActivity : AppCompatActivity(), DialogListener, DaoHelperListerner {
                 Log.d(tag, "error: ${response.errorBody()}")
                 if (response.isSuccessful){
                     val body = response.body()!!.data
-                    recyclerView.adapter = UserAdapter(body)
+                    adapter.setItems(body)
                     dao.save(applicationContext, body)
                     txtStatus.visibility = View.GONE
                 }
                 else{
-
+                    txtStatus.visibility = View.VISIBLE
+                    btnRefresh.visibility = View.VISIBLE
                 }
 
             }
@@ -145,7 +150,7 @@ class ListActivity : AppCompatActivity(), DialogListener, DaoHelperListerner {
 
         }else{
             runOnUiThread {
-                recyclerView.adapter = UserAdapter(all)
+                adapter.setItems(all)
                 btnRefresh.visibility = View.GONE
                 txtStatus.visibility = View.GONE
             }

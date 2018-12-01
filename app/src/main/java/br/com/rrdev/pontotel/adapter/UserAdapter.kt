@@ -8,7 +8,16 @@ import android.widget.TextView
 import br.com.rrdev.pontotel.R
 import br.com.rrdev.pontotel.model.User
 
-class UserAdapter(private val listItems: List<User>): RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+class UserAdapter: RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+
+    private var listItems: List<User> = ArrayList()
+
+    fun setItems(listItems: List<User>){
+        this.listItems = listItems
+        notifyDataSetChanged()
+    }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context)
             .inflate(R.layout.adapter_user, parent, false))
