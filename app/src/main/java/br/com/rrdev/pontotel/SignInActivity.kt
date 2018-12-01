@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
+import br.com.rrdev.pontotel.dialog.LoadDialog
 import br.com.rrdev.pontotel.extension.passwordText
 import br.com.rrdev.pontotel.extension.plainText
 import br.com.rrdev.pontotel.extension.string
@@ -24,6 +25,8 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var checkbox: CheckBox
 
     private lateinit var mAuth: FirebaseAuth
+
+    private val loader = LoadDialog()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,9 +58,11 @@ class SignInActivity : AppCompatActivity() {
                 }
 
                 else->{
+                    loader.show(supportFragmentManager, null)
 
                     mAuth.signInWithEmailAndPassword(editEmail.string(), editPassword.string())
                         .addOnCompleteListener(this) { task ->
+                            loader.dismiss()
                             if (task.isSuccessful) {
 
                                 val user = mAuth.currentUser

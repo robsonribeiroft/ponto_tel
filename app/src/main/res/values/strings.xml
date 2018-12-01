@@ -33,4 +33,5 @@
     <string name="senha_requisito">Senha deve conter no mínimo 6 caracteres</string>
     <string name="email_invalido">Email inválido</string>
     <string name="conta_criada">Conta criada com sucesso</string>
+    <string name="carregando">Carregando...</string>
 </resources>
