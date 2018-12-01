@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "156496774137",
+    "firebase_url": "https://pontotel-aaa86.firebaseio.com",
+    "project_id": "pontotel-aaa86",
+    "storage_bucket": "pontotel-aaa86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156496774137:android:1bbf4bfdfb79ac81",
+        "android_client_info": {
+          "package_name": "br.com.rrdev.pontotel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156496774137-sem1fhl2obl5sc7k2aaq54dkfpedhvm9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.rrdev.pontotel",
+            "certificate_hash": "6a5449145ba4f12507a0c06822bbed3e7bfa530f"
+          }
+        },
+        {
+          "client_id": "156496774137-a3p3tsuo3n19m1po3hrlpqkirda6mo4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM6gK_IVNHQQXddr_ttU3Wqp8rTNn6ALo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156496774137-a3p3tsuo3n19m1po3hrlpqkirda6mo4a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

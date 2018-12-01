@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Json Consumer</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="sair">Sair</string>
+    <string name="error">Error</string>
+    <string name="verificar_local">Não foi possível acessar o servidor. Deseja verificar se existe dados no celular?
+    </string>
+    <string name="tentar_novamente">Não há dados locais. Tente novamente.</string>
+    <string name="busca_servidor">Buscando informações no servidor</string>
+    <string name="sem_internet">Você não acesso a internet</string>
+    <string name="servidor_fora">Não foi possível acessar o servidor. Tente novamente</string>
+    <string name="title_activity_login">Sign in</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="exibir_senha">Exibir Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="criar_conta">Criar Conta</string>
+    <string name="nova_conta">Nova Conta</string>
+    <string name="notificacao_texto">Você está há muito tempo com app fechado!</string>
+    <string name="email_utilizado">Email inválido ou já cadastrado</string>
+    <string name="senha_requisito">Senha deve conter no mínimo 6 caracteres</string>
+    <string name="email_invalido">Email inválido</string>
+    <string name="conta_criada">Conta criada com sucesso</string>
+</resources>
