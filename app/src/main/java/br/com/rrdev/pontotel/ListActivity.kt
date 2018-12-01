@@ -22,6 +22,7 @@ import br.com.rrdev.pontotel.model.Data
 import br.com.rrdev.pontotel.model.User
 import br.com.rrdev.pontotel.service.AlarmHelper
 import br.com.rrdev.pontotel.util.Network
+import br.com.rrdev.pontotel.util.PreferencesHelper
 import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Call
 import retrofit2.Callback
@@ -88,6 +89,7 @@ class ListActivity : AppCompatActivity(), DialogListener, DaoHelperListerner {
             R.id.menu_list_exit-> {
                 FirebaseAuth.getInstance().signOut()
                 startActivity(Intent(applicationContext, SignInActivity::class.java))
+                PreferencesHelper.clear(applicationContext)
                 finish()
                 true
             }

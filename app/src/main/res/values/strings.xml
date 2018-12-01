@@ -29,9 +29,10 @@
     <string name="criar_conta">Criar Conta</string>
     <string name="nova_conta">Nova Conta</string>
     <string name="notificacao_texto">Você está há muito tempo com app fechado!</string>
-    <string name="email_utilizado">Email inválido ou já cadastrado</string>
+    <string name="email_utilizado">Email e/ou Senha inválido</string>
     <string name="senha_requisito">Senha deve conter no mínimo 6 caracteres</string>
     <string name="email_invalido">Email inválido</string>
     <string name="conta_criada">Conta criada com sucesso</string>
     <string name="carregando">Carregando...</string>
+    <string name="bem_vindo">Seja Bem-vindo!</string>
 </resources>

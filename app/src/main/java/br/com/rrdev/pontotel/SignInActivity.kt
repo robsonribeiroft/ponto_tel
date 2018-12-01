@@ -13,6 +13,7 @@ import br.com.rrdev.pontotel.extension.passwordText
 import br.com.rrdev.pontotel.extension.plainText
 import br.com.rrdev.pontotel.extension.string
 import br.com.rrdev.pontotel.util.Auth
+import br.com.rrdev.pontotel.util.PreferencesHelper
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -41,8 +42,6 @@ class SignInActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-
-
         btnNewAccount.setOnClickListener {
             startActivity(Intent(this@SignInActivity, CreateAccountActivity::class.java))
         }
@@ -68,6 +67,9 @@ class SignInActivity : AppCompatActivity() {
                                 val user = mAuth.currentUser
                                 user?.email
                                 Log.d(TAG, "USer:\n${user.toString()}")
+                                user?.let { it ->
+                                    PreferencesHelper.save(applicationContext, it.uid)
+                                }
                                 startActivity(Intent(applicationContext, ListActivity::class.java))
 
                             } else {
