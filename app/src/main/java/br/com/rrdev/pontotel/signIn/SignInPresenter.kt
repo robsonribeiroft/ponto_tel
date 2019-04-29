@@ -23,7 +23,7 @@ class SignInPresenter : SignInContract.Presenter<SignInContract.View> {
         when{
             email.isEmpty() || password.isEmpty()-> view.onFailure(context.getString(R.string.email_invalido))
             password.length < CreateAccountActivity.PASSWORD_MINIMUM_SIZE -> view.onFailure(context.getString(R.string.senha_requisito))
-            else-> signIn(email, password)
+            else-> signInFirebase(email, password)
         }
     }
 

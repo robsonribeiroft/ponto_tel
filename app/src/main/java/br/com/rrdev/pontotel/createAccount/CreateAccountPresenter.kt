@@ -2,6 +2,7 @@ package br.com.rrdev.pontotel.createAccount
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import br.com.rrdev.pontotel.R
 import br.com.rrdev.pontotel.createAccount.CreateAccountActivity.Companion.PASSWORD_MINIMUM_SIZE
 import com.google.firebase.auth.FirebaseAuth
@@ -33,6 +34,7 @@ class CreateAccountPresenter : CreateAccountContract.Presenter<CreateAccountCont
                         view.onSuccess()
                     } else {
                         // If sign in fails, display a message to the user.
+                        Log.d("CHECK", task.exception?.message)
                         view.onFailure(context.getString(R.string.email_utilizado))
                     }
                 }

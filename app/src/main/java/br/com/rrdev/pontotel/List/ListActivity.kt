@@ -29,7 +29,7 @@ class ListActivity : AppCompatActivity(), DialogListener, ListContract.View {
 
     private val adapter = UserAdapter()
 
-    private val dao = DaoHelper(this)
+    private lateinit var dao : DaoHelper
 
     private val confirmDialog = ConfirmDialog()
 
@@ -56,6 +56,8 @@ class ListActivity : AppCompatActivity(), DialogListener, ListContract.View {
 
         presenter = ListPresenter()
         presenter.attach(this)
+
+        dao = DaoHelper(this)
 
         btnRefresh.setOnClickListener {
             presenter.retrieveUsers()
