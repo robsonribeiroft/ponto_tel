@@ -7,8 +7,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitSetup {
 
     companion object {
-        val retrofitInstance = Retrofit.Builder().baseUrl(PontoTelApi.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create()).build()
-            .create(PontoTelApi::class.java)
+
+        fun getInstance(): PontoTelApi = Retrofit.Builder().baseUrl(PontoTelApi.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create()).build()
+                .create(PontoTelApi::class.java)
+
     }
 }

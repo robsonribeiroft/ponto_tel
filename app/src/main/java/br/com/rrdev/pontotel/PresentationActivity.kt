@@ -4,6 +4,8 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import br.com.rrdev.pontotel.List.ListActivity
+import br.com.rrdev.pontotel.signIn.SignInActivity
 import br.com.rrdev.pontotel.util.PreferencesHelper
 
 class PresentationActivity : AppCompatActivity() {

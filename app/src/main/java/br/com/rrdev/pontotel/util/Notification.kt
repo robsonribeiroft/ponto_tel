@@ -5,7 +5,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.support.v4.app.NotificationCompat
-import br.com.rrdev.pontotel.ListActivity
+import br.com.rrdev.pontotel.List.ListActivity
 import br.com.rrdev.pontotel.R
 
 class Notification {

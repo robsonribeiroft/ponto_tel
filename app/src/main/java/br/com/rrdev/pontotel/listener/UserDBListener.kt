@@ -2,7 +2,7 @@ package br.com.rrdev.pontotel.listener
 
 import br.com.rrdev.pontotel.model.User
 
-interface DaoHelperListerner {
+interface UserDBListener {
 
-    fun getAll(all: List<User>)
+    fun getAll(allUsers: List<User>)
 }

@@ -15,15 +15,15 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
-                android:name=".ListActivity"
+                android:name=".List.ListActivity"
                 android:screenOrientation="portrait"/>
         <activity
-                android:name=".SignInActivity"
+                android:name=".signIn.SignInActivity"
                 android:screenOrientation="portrait">
 
         </activity>
         <activity
-                android:name=".CreateAccountActivity"
+                android:name=".createAccount.CreateAccountActivity"
                 android:screenOrientation="portrait"/>
 
         <service

@@ -1,23 +1,24 @@
 package br.com.rrdev.pontotel.dao
 
 import android.content.Context
-import android.media.MediaPlayer
-import br.com.rrdev.pontotel.listener.DaoHelperListerner
+import br.com.rrdev.pontotel.listener.UserDBListener
 import br.com.rrdev.pontotel.model.User
 
-class DaoHelper(private val listener: DaoHelperListerner){
+class DaoHelper(private val context: Context){
 
+    private val userDao: UserDao = AppDatabase.getInstance(context).userDao()
 
-    fun obtain(context: Context){
+    fun obtain(){
         Thread{
-            val all=AppDatabase.getInstance(context).userDao().getAll()
+            val listener = context as UserDBListener
+            val all= userDao.getAll()
             listener.getAll(all ?: ArrayList())
         }.start()
     }
 
-    fun save(context: Context,list: List<User>){
+    fun save(list: List<User>){
         Thread{
-            AppDatabase.getInstance(context).userDao().run {
+            userDao.run {
                 deleteAll()
                 insert(list)
             }
