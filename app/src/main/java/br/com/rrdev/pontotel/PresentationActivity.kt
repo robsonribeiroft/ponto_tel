@@ -1,12 +1,16 @@
 package br.com.rrdev.pontotel
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 import br.com.rrdev.pontotel.util.PreferencesHelper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
-class PresentationActivity : AppCompatActivity() {
+class PresentationActivity : AppCompatActivity(), CoroutineScope {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,15 +20,18 @@ class PresentationActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        Handler().postDelayed({
-
-            val id = PreferencesHelper.retrieve(applicationContext)
-
-            startActivity(Intent(applicationContext, if (id.isNullOrEmpty()) SignInActivity::class.java else ListActivity::class.java))
-
+        launch {
+            delay(1500)
+            startActivity(
+                Intent(
+                applicationContext,
+                if (PreferencesHelper.userIsLogged()) ListActivity::class.java
+                else SignInActivity::class.java
+            ))
             finish()
-        }, 2000)
-
-
+        }
     }
+
+    override val coroutineContext: CoroutineContext
+        get() = Main
 }

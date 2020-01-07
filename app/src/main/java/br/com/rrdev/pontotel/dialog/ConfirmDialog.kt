@@ -1,17 +1,16 @@
 package br.com.rrdev.pontotel.dialog
 
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import br.com.rrdev.pontotel.R
-import br.com.rrdev.pontotel.listener.DialogListener
 import kotlinx.android.synthetic.main.dialog_confirm.*
 
 class ConfirmDialog: DialogFragment() {
 
-    var listener: DialogListener? = null
+    var confirmResult: (result: Boolean)->Unit = {}
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.dialog_confirm, container, false)
@@ -22,12 +21,12 @@ class ConfirmDialog: DialogFragment() {
 
 
         btn_confirm.setOnClickListener {
-            listener?.confirmResult(true)
+            confirmResult(true)
             dismiss()
         }
 
         btn_cancel.setOnClickListener {
-            listener?.confirmResult(false)
+            confirmResult(false)
             dismiss()
         }
     }

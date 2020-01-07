@@ -1,12 +1,12 @@
 package br.com.rrdev.pontotel.adapter
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import br.com.rrdev.pontotel.R
 import br.com.rrdev.pontotel.model.User
+import kotlinx.android.synthetic.main.adapter_user.view.*
 
 class UserAdapter: RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
@@ -21,24 +21,22 @@ class UserAdapter: RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context)
             .inflate(R.layout.adapter_user, parent, false))
-
     }
 
-    override fun getItemCount(): Int {
-        return listItems.size
-    }
+    override fun getItemCount(): Int = listItems.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.run {
-            txtId.text = "ID : ${listItems[position].id}"
-            txtName.text = "Name : ${listItems[position].name}"
-            txtPwd.text = "Pwd : ${listItems[position].pwd}"
+        val item = listItems[position]
+        holder.apply {
+            txtId.text = "ID : ${item.id}"
+            txtName.text = "Name : ${item.name}"
+            txtPwd.text = "Pwd : ${item.pwd}"
         }
     }
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val txtId = view.findViewById<TextView>(R.id.txt_id)
-        val txtName = view.findViewById<TextView>(R.id.txt_name)
-        val txtPwd = view.findViewById<TextView>(R.id.txt_pwd)
+        val txtId = view.txt_id
+        val txtName = view.txt_name
+        val txtPwd = view.txt_pwd
     }
 }

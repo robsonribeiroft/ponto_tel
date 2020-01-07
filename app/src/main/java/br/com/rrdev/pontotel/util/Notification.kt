@@ -4,8 +4,9 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.support.v4.app.NotificationCompat
+import androidx.core.app.NotificationCompat
 import br.com.rrdev.pontotel.ListActivity
+import br.com.rrdev.pontotel.PontotelApplication.Companion.application
 import br.com.rrdev.pontotel.R
 
 class Notification {
@@ -15,18 +16,18 @@ class Notification {
         private const val NOTIFICATION_ID = 0
     }
 
-    fun show(context: Context){
-        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+    fun show(){
+        val builder = NotificationCompat.Builder(application, CHANNEL_ID)
         builder.run {
-            setContentTitle(context.getString(R.string.app_name))
-            setContentText(context.getString(R.string.notificacao_texto))
+            setContentTitle(application.getString(R.string.app_name))
+            setContentText(application.getString(R.string.notificacao_texto))
             setAutoCancel(true)
-            val intent = Intent(context, ListActivity::class.java)
+            val intent = Intent(application, ListActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
-            setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT))
+            setContentIntent(PendingIntent.getActivity(application, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT))
         }
 
-        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager = application.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(NOTIFICATION_ID, builder.build())
     }
 }

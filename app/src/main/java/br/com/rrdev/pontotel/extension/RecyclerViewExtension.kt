@@ -1,9 +1,13 @@
 package br.com.rrdev.pontotel.extension
 
-import android.content.Context
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import br.com.rrdev.pontotel.PontotelApplication.Companion.application
 
-fun RecyclerView.setupVertical(context: Context){
-    layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+fun RecyclerView.setupVertical(){
+    layoutManager = LinearLayoutManager(
+        application,
+        LinearLayoutManager.VERTICAL,
+        false
+    )
 }

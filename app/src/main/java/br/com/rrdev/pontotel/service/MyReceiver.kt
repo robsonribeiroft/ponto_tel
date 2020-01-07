@@ -11,7 +11,7 @@ class MyReceiver: BroadcastReceiver() {
         intent?.let {
             if (it.action == AlarmHelper.INTENT_ACTION){
                 val not = Notification()
-                if (context!=null) not.show(context)
+                if (context!=null) not.show()
             }
         }
     }
